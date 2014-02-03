@@ -17,12 +17,11 @@
 		580E1D7B189E8F4000336A44 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 580E1D7A189E8F4000336A44 /* CoreFoundation.framework */; };
 		580E1D81189E8F4100336A44 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 580E1D7F189E8F4100336A44 /* InfoPlist.strings */; };
 		580E1D8B189E900D00336A44 /* JJJCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 580E1D88189E900D00336A44 /* JJJCoreData.m */; };
-		580E1D8C189E900D00336A44 /* JJJCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 580E1D88189E900D00336A44 /* JJJCoreData.m */; };
 		580E1D8D189E900D00336A44 /* JJJUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 580E1D8A189E900D00336A44 /* JJJUtil.m */; };
-		580E1D8E189E900D00336A44 /* JJJUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 580E1D8A189E900D00336A44 /* JJJUtil.m */; };
-		580E1D8F189E907100336A44 /* JJJ.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 580E1D86189E900D00336A44 /* JJJ.h */; };
-		580E1D90189E907100336A44 /* JJJCoreData.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 580E1D87189E900D00336A44 /* JJJCoreData.h */; };
-		580E1D91189E907100336A44 /* JJJUtil.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 580E1D89189E900D00336A44 /* JJJUtil.h */; };
+		58264E93189E9E1200D83B00 /* JJJ.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 580E1D86189E900D00336A44 /* JJJ.h */; };
+		58264E94189E9E1200D83B00 /* JJJCoreData.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 580E1D87189E900D00336A44 /* JJJCoreData.h */; };
+		58264E95189E9E1200D83B00 /* JJJUtil.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 580E1D89189E900D00336A44 /* JJJUtil.h */; };
+		5885C014189F405B00BDF538 /* JJJConstants.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5885C011189F3F7500BDF538 /* JJJConstants.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,12 +38,13 @@
 		580E1D4A189E8DDA00336A44 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = include;
+			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
-				580E1D8F189E907100336A44 /* JJJ.h in CopyFiles */,
-				580E1D90189E907100336A44 /* JJJCoreData.h in CopyFiles */,
-				580E1D91189E907100336A44 /* JJJUtil.h in CopyFiles */,
+				5885C014189F405B00BDF538 /* JJJConstants.h in CopyFiles */,
+				58264E93189E9E1200D83B00 /* JJJ.h in CopyFiles */,
+				58264E94189E9E1200D83B00 /* JJJCoreData.h in CopyFiles */,
+				58264E95189E9E1200D83B00 /* JJJUtil.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +70,7 @@
 		580E1D88189E900D00336A44 /* JJJCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJJCoreData.m; sourceTree = "<group>"; };
 		580E1D89189E900D00336A44 /* JJJUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJJUtil.h; sourceTree = "<group>"; };
 		580E1D8A189E900D00336A44 /* JJJUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJJUtil.m; sourceTree = "<group>"; };
+		5885C011189F3F7500BDF538 /* JJJConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJJConstants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				580E1D86189E900D00336A44 /* JJJ.h */,
+				5885C011189F3F7500BDF538 /* JJJConstants.h */,
 				580E1D87189E900D00336A44 /* JJJCoreData.h */,
 				580E1D88189E900D00336A44 /* JJJCoreData.m */,
 				580E1D89189E900D00336A44 /* JJJUtil.h */,
@@ -309,8 +311,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				580E1D6C189E8DDB00336A44 /* JJJTests.m in Sources */,
-				580E1D8C189E900D00336A44 /* JJJCoreData.m in Sources */,
-				580E1D8E189E900D00336A44 /* JJJUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,9 +427,10 @@
 				DSTROOT = /tmp/JJJ.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JJJ/JJJ-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
 			};
 			name = Debug;
 		};
@@ -439,9 +440,10 @@
 				DSTROOT = /tmp/JJJ.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JJJ/JJJ-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
 			};
 			name = Release;
 		};
@@ -539,6 +541,7 @@
 				580E1D71189E8DDB00336A44 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		580E1D72189E8DDB00336A44 /* Build configuration list for PBXNativeTarget "JJJTests" */ = {
 			isa = XCConfigurationList;
@@ -547,6 +550,7 @@
 				580E1D74189E8DDB00336A44 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		580E1D83189E8F4100336A44 /* Build configuration list for PBXNativeTarget "JJJBundle" */ = {
 			isa = XCConfigurationList;
@@ -555,6 +559,7 @@
 				580E1D85189E8F4100336A44 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

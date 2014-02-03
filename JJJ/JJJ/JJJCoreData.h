@@ -8,6 +8,8 @@
 
 #import <CoreData/CoreData.h>
 
+#include "JJJConstants.h"
+
 @interface JJJCoreData : NSObject
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
@@ -16,7 +18,7 @@
 
 + (id)sharedInstanceWithModel:(NSString*) model;
 
-- (void)save;
+- (BOOL)save;
 - (id)createManagedObject:(NSString*)name;
 - (BOOL)bIsTableEmpty:(NSString*)tableName;
 - (int)tableCount:(NSString*)tableName;

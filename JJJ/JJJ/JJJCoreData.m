@@ -45,21 +45,28 @@ static NSMutableDictionary *_singletons;
 
 #pragma mark - DB Ops
 
-- (void)save
+- (BOOL)save
 {
     NSError *error = nil;
-    NSManagedObjectContext *moc = self.managedObjectContext;
+    NSManagedObjectContext *moc = [self managedObjectContext];
+    BOOL retVal = YES;
     
     if (moc)
     {
-        if ([moc hasChanges] && ![moc save:&error])
+        if ([moc hasChanges])
         {
-            // Replace this implementation with code to handle the error appropriately.
-            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-            abort();
+            if (![moc save:&error])
+            {
+                // Replace this implementation with code to handle the error appropriately.
+                // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                NSLog(@"Unresolved error %@, %@, %@", error, [error userInfo], [error localizedDescription]);
+//                abort();
+                retVal = NO;
+            }
         }
     }
+    
+    return retVal;
 }
 
 - (id)createManagedObject:(NSString*)name
