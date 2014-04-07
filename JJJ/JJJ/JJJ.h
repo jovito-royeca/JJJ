@@ -10,7 +10,6 @@
 #define JJJ_h
 
 #include "JJJConstants.h"
-#import "JJJCoreData.h"
 #import "JJJUtil.h"
 
 #endif

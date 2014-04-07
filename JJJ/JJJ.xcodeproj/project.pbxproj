@@ -16,10 +16,8 @@
 		580E1D6C189E8DDB00336A44 /* JJJTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 580E1D6B189E8DDB00336A44 /* JJJTests.m */; };
 		580E1D7B189E8F4000336A44 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 580E1D7A189E8F4000336A44 /* CoreFoundation.framework */; };
 		580E1D81189E8F4100336A44 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 580E1D7F189E8F4100336A44 /* InfoPlist.strings */; };
-		580E1D8B189E900D00336A44 /* JJJCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 580E1D88189E900D00336A44 /* JJJCoreData.m */; };
 		580E1D8D189E900D00336A44 /* JJJUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 580E1D8A189E900D00336A44 /* JJJUtil.m */; };
 		58264E93189E9E1200D83B00 /* JJJ.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 580E1D86189E900D00336A44 /* JJJ.h */; };
-		58264E94189E9E1200D83B00 /* JJJCoreData.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 580E1D87189E900D00336A44 /* JJJCoreData.h */; };
 		58264E95189E9E1200D83B00 /* JJJUtil.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 580E1D89189E900D00336A44 /* JJJUtil.h */; };
 		5885C014189F405B00BDF538 /* JJJConstants.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5885C011189F3F7500BDF538 /* JJJConstants.h */; };
 /* End PBXBuildFile section */
@@ -43,7 +41,6 @@
 			files = (
 				5885C014189F405B00BDF538 /* JJJConstants.h in CopyFiles */,
 				58264E93189E9E1200D83B00 /* JJJ.h in CopyFiles */,
-				58264E94189E9E1200D83B00 /* JJJCoreData.h in CopyFiles */,
 				58264E95189E9E1200D83B00 /* JJJUtil.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -66,8 +63,6 @@
 		580E1D80189E8F4100336A44 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		580E1D82189E8F4100336A44 /* JJJBundle-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JJJBundle-Prefix.pch"; sourceTree = "<group>"; };
 		580E1D86189E900D00336A44 /* JJJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJJ.h; sourceTree = "<group>"; };
-		580E1D87189E900D00336A44 /* JJJCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJJCoreData.h; sourceTree = "<group>"; };
-		580E1D88189E900D00336A44 /* JJJCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJJCoreData.m; sourceTree = "<group>"; };
 		580E1D89189E900D00336A44 /* JJJUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJJUtil.h; sourceTree = "<group>"; };
 		580E1D8A189E900D00336A44 /* JJJUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJJUtil.m; sourceTree = "<group>"; };
 		5885C011189F3F7500BDF538 /* JJJConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJJConstants.h; sourceTree = "<group>"; };
@@ -141,8 +136,6 @@
 			children = (
 				580E1D86189E900D00336A44 /* JJJ.h */,
 				5885C011189F3F7500BDF538 /* JJJConstants.h */,
-				580E1D87189E900D00336A44 /* JJJCoreData.h */,
-				580E1D88189E900D00336A44 /* JJJCoreData.m */,
 				580E1D89189E900D00336A44 /* JJJUtil.h */,
 				580E1D8A189E900D00336A44 /* JJJUtil.m */,
 				580E1D52189E8DDA00336A44 /* Supporting Files */,
@@ -302,7 +295,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				580E1D8D189E900D00336A44 /* JJJUtil.m in Sources */,
-				580E1D8B189E900D00336A44 /* JJJCoreData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
