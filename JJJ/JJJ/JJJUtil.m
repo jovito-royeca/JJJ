@@ -10,7 +10,7 @@
 
 @implementation JJJUtil
 
-+ (BOOL)string:(NSString *)string containsString:(NSString*)x
++ (BOOL) string:(NSString *)string containsString:(NSString*)x
 {
     NSRange isRange = [string rangeOfString:x options:NSCaseInsensitiveSearch];
     if(isRange.location == 0)
@@ -29,18 +29,18 @@
     return NO;
 }
 
-+ (BOOL)isEmptyString:(NSString*)string
++ (BOOL) isEmptyString:(NSString*)string
 {
     return [[string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length] <= 0;
 }
 
-+ (BOOL)isAlphaStart:(NSString*)string
++ (BOOL) isAlphaStart:(NSString*)string
 {
 //    return [[NSCharacterSet letterCharacterSet] characterIsMember:[string characterAtIndex:0]];
     return isalpha([string characterAtIndex:0]);
 }
 
-+ (NSString*)arrayToString:(NSArray*)arr
++ (NSString*) arrayToString:(NSArray*)arr
 {
     NSMutableString *retString = [[NSMutableString alloc] init];
 
@@ -52,7 +52,7 @@
     return retString;
 }
 
-+ (NSString*)toUTF8:(NSString*)string
++ (NSString*) toUTF8:(NSString*)string
 {
     if ([string canBeConvertedToEncoding:NSISOLatin1StringEncoding])
     {
@@ -67,7 +67,7 @@
     }
 }
 
-+ (NSString*)toASCII:(NSString*)string
++ (NSString*) toASCII:(NSString*)string
 {
     if ([string canBeConvertedToEncoding:NSASCIIStringEncoding])
     {
@@ -82,12 +82,12 @@
     }
 }
 
-+ (NSString*)trim:(NSString*)string
++ (NSString*) trim:(NSString*)string
 {
     return [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 }
 
-+ (NSString*)superScriptOf:(NSString*)string
++ (NSString*) superScriptOf:(NSString*)string
 {
     NSMutableString *p = [[NSMutableString alloc] init];
     
@@ -188,7 +188,7 @@
     return p;
 }
 
-+ (NSString*)subScriptOf:(NSString*)string
++ (NSString*) subScriptOf:(NSString*)string
 {
     NSMutableString *p = [[NSMutableString alloc] init];
     
@@ -370,5 +370,43 @@
 //    return [att string];
 //}
 
++ (NSString *) formatInterval: (NSTimeInterval) interval
+{
+    //    if (interval == 0)
+    //    {
+    //        return @"HH:mm:ss.SSS";
+    //    }
+    //
+    //    unsigned long milliseconds = interval;
+    //    unsigned long seconds = milliseconds / 1000;
+    //    milliseconds %= 1000;
+    //    unsigned long minutes = seconds / 60;
+    //    seconds %= 60;
+    //    unsigned long hours = minutes / 60;
+    //    minutes %= 60;
+    //
+    //    NSMutableString * result = [NSMutableString new];
+    //
+    //    if(hours)
+    //        [result appendFormat: @"%lu:", hours];
+    //
+    //    [result appendFormat: @"%2lu:", minutes];
+    //    [result appendFormat: @"%2lu:", seconds];
+    //    [result appendFormat: @"%2lu",milliseconds];
+    //
+    //    return result;
+    
+    if (interval == 0)
+    {
+        return @"HH:mm:ss";
+    }
+    
+    NSInteger ti = (NSInteger)interval;
+    NSInteger seconds = ti % 60;
+    NSInteger minutes = (ti / 60) % 60;
+    NSInteger hours = (ti / 3600);
+    return [NSString stringWithFormat:@"%02ld:%02ld:%02ld", (long)hours, (long)minutes, (long)seconds];
+    
+}
 
 @end
