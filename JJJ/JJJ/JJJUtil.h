@@ -20,4 +20,6 @@
 + (NSString*) superScriptOf:(NSString*)string;
 + (NSString*) subScriptOf:(NSString*)string;
 + (NSString*) formatInterval: (NSTimeInterval) interval;
++ (NSArray*) alphabetWithWildcard;
+
 @end
