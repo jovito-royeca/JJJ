@@ -21,5 +21,6 @@
 + (NSString*) subScriptOf:(NSString*)string;
 + (NSString*) formatInterval: (NSTimeInterval) interval;
 + (NSArray*) alphabetWithWildcard;
++ (NSString*) termInitial:(NSString*) term;
 
 @end

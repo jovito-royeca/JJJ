@@ -440,4 +440,16 @@
              @"Z"];
 }
 
++ (NSString*) termInitial:(NSString*) term
+{
+    if ([JJJUtil isAlphaStart:term])
+    {
+        return [[term substringToIndex:1] uppercaseString];
+    }
+    else
+    {
+        return @"#";
+    }
+}
+
 @end
