@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define COMPOUND_SEPARATOR @"&#&"
+
 @interface JJJUtil : NSObject
 
 + (BOOL) string:(NSString *)string containsString:(NSString*)x;
