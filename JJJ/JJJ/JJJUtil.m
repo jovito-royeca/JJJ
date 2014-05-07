@@ -411,7 +411,11 @@
 
 + (NSArray*) alphabetWithWildcard
 {
-    return @[@"#",
+    static NSArray *arrAlphabet;
+    
+    if (!arrAlphabet)
+    {
+        arrAlphabet =  @[@"#",
              @"A",
              @"B",
              @"C",
@@ -438,6 +442,9 @@
              @"X",
              @"Y",
              @"Z"];
+    }
+    
+    return arrAlphabet;
 }
 
 + (NSString*) termInitial:(NSString*) term
