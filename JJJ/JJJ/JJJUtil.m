@@ -459,4 +459,15 @@
     }
 }
 
++ (NSString*) highlightTerm:(NSString*) term withQuery:(NSString*) query
+{
+    NSRegularExpression *re = [NSRegularExpression regularExpressionWithPattern:query
+                                                                        options:NSRegularExpressionCaseInsensitive
+                                                                          error:NULL];
+    return [re stringByReplacingMatchesInString:term
+                                        options:0
+                                          range:NSMakeRange(0, term.length)
+                                   withTemplate:@"<mark>$0</mark>"];
+}
+
 @end
