@@ -470,4 +470,11 @@
                                    withTemplate:@"<mark>$0</mark>"];
 }
 
++ (BOOL) stringContainsSpace:(NSString*)string
+{
+    NSRange whiteSpaceRange = [string rangeOfCharacterFromSet:[NSCharacterSet whitespaceCharacterSet]];
+    
+    return whiteSpaceRange.location != NSNotFound ? YES : NO;
+}
+
 @end

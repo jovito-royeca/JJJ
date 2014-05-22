@@ -27,5 +27,6 @@
 + (NSArray*) alphabetWithWildcard;
 + (NSString*) termInitial:(NSString*) term;
 + (NSString*) highlightTerm:(NSString*) term withQuery:(NSString*) query;
++ (BOOL) stringContainsSpace:(NSString*)string;
 
 @end
