@@ -33,4 +33,5 @@
 
 + (NSString*) runCommand:(NSString*) command;
 
++ (void) downloadResource:(NSURL*) url toPath:(NSString*) path;
 @end

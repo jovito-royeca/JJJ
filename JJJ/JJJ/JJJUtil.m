@@ -514,5 +514,14 @@
 #endif
 }
 
++ (void) downloadResource:(NSURL*) url toPath:(NSString*) path
+{
+    NSData *urlData = [NSData dataWithContentsOfURL:url];
+    
+    if (urlData)
+    {
+        [urlData writeToFile:path atomically:YES];
+    }
+}
 
 @end
