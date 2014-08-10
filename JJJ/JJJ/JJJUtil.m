@@ -524,4 +524,20 @@
     }
 }
 
++ (NSDate*) parseDate:(NSString*)date withFormat:(NSString*) format
+{
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    
+    [dateFormat setDateFormat:format];
+    return [dateFormat dateFromString:date];
+}
+
++ (NSString*) formatDate:(NSDate *)date withFormat:(NSString*) format
+{
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    
+    [dateFormat setDateFormat:format];
+    return [dateFormat stringFromDate:date];
+}
+
 @end

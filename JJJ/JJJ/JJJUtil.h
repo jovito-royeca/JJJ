@@ -34,4 +34,8 @@
 + (NSString*) runCommand:(NSString*) command;
 
 + (void) downloadResource:(NSURL*) url toPath:(NSString*) path;
+
++ (NSDate*) parseDate:(NSString*)date withFormat:(NSString*) format;
++ (NSString*) formatDate:(NSDate *)date withFormat:(NSString*) format;
+
 @end
