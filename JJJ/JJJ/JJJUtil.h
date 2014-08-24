@@ -37,5 +37,6 @@
 
 + (NSDate*) parseDate:(NSString*)date withFormat:(NSString*) format;
 + (NSString*) formatDate:(NSDate *)date withFormat:(NSString*) format;
++ (NSString*) reverseString:(NSString*) string;
 
 @end
