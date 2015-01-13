@@ -38,5 +38,6 @@
 + (NSDate*) parseDate:(NSString*)date withFormat:(NSString*) format;
 + (NSString*) formatDate:(NSDate *)date withFormat:(NSString*) format;
 + (NSString*) reverseString:(NSString*) string;
-
++ (NSString*) stringWithNewLinesAsBRs:(NSString*)text;
++ (BOOL) addSkipBackupAttributeToItemAtURL:(NSURL *)URL;
 @end
