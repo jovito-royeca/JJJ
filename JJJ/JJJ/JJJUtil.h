@@ -40,4 +40,6 @@
 + (NSString*) reverseString:(NSString*) string;
 + (NSString*) stringWithNewLinesAsBRs:(NSString*)text;
 + (BOOL) addSkipBackupAttributeToItemAtURL:(NSURL *)URL;
++ (NSString*) removeNewLines:(NSString*)text;
+
 @end

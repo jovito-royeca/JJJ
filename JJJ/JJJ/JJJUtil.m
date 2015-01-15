@@ -576,4 +576,9 @@
     return success;
 }
 
++ (NSString*) removeNewLines:(NSString*)text
+{
+    return [[text componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@" "];
+}
+
 @end
