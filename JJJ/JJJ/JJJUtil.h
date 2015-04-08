@@ -6,13 +6,14 @@
 //  Copyright (c) 2013 Jovito Royeca. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
+@import UIKit;
 
 #import "JJJConstants.h"
 
 #define COMPOUND_SEPARATOR @"&#&"
 
-#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+//#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 @interface JJJUtil : NSObject
 
@@ -42,4 +43,5 @@
 + (BOOL) addSkipBackupAttributeToItemAtURL:(NSURL *)URL;
 + (NSString*) removeNewLines:(NSString*)text;
 
++ (UIColor*) UIColorFromRGB:(NSUInteger) rgbValue;
 @end
