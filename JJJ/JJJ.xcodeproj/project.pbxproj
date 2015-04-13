@@ -20,6 +20,7 @@
 		58264E93189E9E1200D83B00 /* JJJ.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 580E1D86189E900D00336A44 /* JJJ.h */; };
 		58264E95189E9E1200D83B00 /* JJJUtil.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 580E1D89189E900D00336A44 /* JJJUtil.h */; };
 		5885C014189F405B00BDF538 /* JJJConstants.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5885C011189F3F7500BDF538 /* JJJConstants.h */; };
+		8C01E0FB1ADB66BD00509DDB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C01E0FA1ADB66BD00509DDB /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		580E1D89189E900D00336A44 /* JJJUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJJUtil.h; sourceTree = "<group>"; };
 		580E1D8A189E900D00336A44 /* JJJUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJJUtil.m; sourceTree = "<group>"; };
 		5885C011189F3F7500BDF538 /* JJJConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJJConstants.h; sourceTree = "<group>"; };
+		8C01E0FA1ADB66BD00509DDB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C01E0FB1ADB66BD00509DDB /* UIKit.framework in Frameworks */,
 				580E1D50189E8DDA00336A44 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -123,6 +126,7 @@
 		580E1D4E189E8DDA00336A44 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8C01E0FA1ADB66BD00509DDB /* UIKit.framework */,
 				580E1D4F189E8DDA00336A44 /* Foundation.framework */,
 				580E1D5D189E8DDB00336A44 /* XCTest.framework */,
 				580E1D60189E8DDB00336A44 /* UIKit.framework */,

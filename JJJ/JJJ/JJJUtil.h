@@ -7,9 +7,12 @@
 //
 
 @import Foundation;
-@import UIKit;
 
 #import "JJJConstants.h"
+
+#if defined(_OS_IPHONE) || defined(_OS_IPHONE_SIMULATOR)
+@import UIKit;
+#endif
 
 #define COMPOUND_SEPARATOR @"&#&"
 
@@ -43,5 +46,15 @@
 + (BOOL) addSkipBackupAttributeToItemAtURL:(NSURL *)URL;
 + (NSString*) removeNewLines:(NSString*)text;
 
+#if defined(_OS_IPHONE) || defined(_OS_IPHONE_SIMULATOR)
 + (UIColor*) UIColorFromRGB:(NSUInteger) rgbValue;
+
++ (void)alertWithTitle:(NSString *)title andMessage:(NSString *)message;
++ (void)alertWithTitle:(NSString*) title
+               message:(NSString*) message
+     cancelButtonTitle:(NSString*) cancelTitle
+     otherButtonTitles:(NSDictionary*) otherButtons
+     textFieldHandlers:(NSArray*) textFieldHandlers;
+#endif
+
 @end

@@ -581,7 +581,7 @@
     return [[text componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@" "];
 }
 
-
+#if defined(_OS_IPHONE) || defined(_OS_IPHONE_SIMULATOR)
 + (UIColor*) UIColorFromRGB:(NSUInteger) rgbValue
 {
     return [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0
@@ -590,4 +590,94 @@
                            alpha:1.0];
 }
 
+
++ (void)alertWithTitle:(NSString*) title andMessage:(NSString*) message {
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title
+                                                                   message:message
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    
+    if (alert!=nil)
+    {
+        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK"
+                                                     style:UIAlertActionStyleDefault
+                                                   handler:^(UIAlertAction * action) {
+                                                       [alert dismissViewControllerAnimated:YES completion:nil];
+                                                   }];
+        [alert addAction:ok];
+        
+        //        UIViewController *topController = [UIApplication sharedApplication].keyWindow.rootViewController;
+        //        while (topController.presentedViewController) {
+        //            topController = topController.presentedViewController;
+        //        }
+        //        [topController  presentViewController:alert animated:YES completion:nil];
+        [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alert animated:YES completion:nil];
+        
+    }
+    else
+    {
+        UIAlertView *messageBox = [[UIAlertView alloc] initWithTitle:title
+                                                             message:message
+                                                            delegate:nil
+                                                   cancelButtonTitle:@"OK"
+                                                   otherButtonTitles:nil];
+        [messageBox show];
+    }
+}
+
++ (void)alertWithTitle:(NSString*) title
+               message:(NSString*) message
+     cancelButtonTitle:(NSString*) cancelTitle
+     otherButtonTitles:(NSDictionary*) otherButtons
+     textFieldHandlers:(NSArray*) textFieldHandlers {
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title
+                                                                   message:message
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    
+    
+    if (alert==nil)
+    {
+        UIAlertView *messageBox = [[UIAlertView alloc] initWithTitle:title
+                                                             message:message
+                                                            delegate:nil
+                                                   cancelButtonTitle:@"OK"
+                                                   otherButtonTitles:nil];
+        [messageBox show];
+        return;
+    }
+    if (cancelTitle) {
+        UIAlertAction *cancel = [UIAlertAction actionWithTitle:cancelTitle
+                                                         style:UIAlertActionStyleDefault
+                                                       handler:^(UIAlertAction * action) {
+                                                           [alert dismissViewControllerAnimated:YES completion:nil];
+                                                       }];
+        [alert addAction:cancel];
+    }
+    
+    for (NSString *title in [otherButtons allKeys]) {
+        void (^handler)(UIAlertController*) = [otherButtons objectForKey:title];
+        
+        UIAlertAction *action = [UIAlertAction actionWithTitle:title
+                                                         style:UIAlertActionStyleDefault
+                                                       handler:^(UIAlertAction * action) {
+                                                           
+                                                           handler(alert);
+                                                           [alert dismissViewControllerAnimated:YES completion:nil];
+                                                       }];
+        [alert addAction:action];
+    }
+    
+    for (void(^textFieldHandler)(UITextField*) in textFieldHandlers) {
+        
+        [alert addTextFieldWithConfigurationHandler:textFieldHandler];
+    }
+    
+    UIViewController *topController = [UIApplication sharedApplication].keyWindow.rootViewController;
+    while (topController.presentedViewController) {
+        topController = topController.presentedViewController;
+    }
+    [topController  presentViewController:alert animated:YES completion:nil];
+}
+#endif
 @end
