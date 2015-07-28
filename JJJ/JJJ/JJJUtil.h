@@ -48,6 +48,7 @@
 
 #if defined(_OS_IPHONE) || defined(_OS_IPHONE_SIMULATOR)
 + (UIColor*) UIColorFromRGB:(NSUInteger) rgbValue;
++ (UIColor*)colorFromHexString:(NSString *)hexString;
 
 + (void)alertWithTitle:(NSString *)title andMessage:(NSString *)message;
 + (void)alertWithTitle:(NSString*) title
