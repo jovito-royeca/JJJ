@@ -581,16 +581,6 @@
     return [[text componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@" "];
 }
 
-+ (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize
-{
-    UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
-    CGRect rect = CGRectMake(0.0, 0.0, newSize.width, newSize.height);
-    [image drawInRect:rect];
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return newImage;
-}
-
 #if defined(_OS_IPHONE) || defined(_OS_IPHONE_SIMULATOR)
 + (UIColor*) UIColorFromRGB:(NSUInteger) rgbValue
 {
@@ -703,5 +693,16 @@
     }
     [topController  presentViewController:alert animated:YES completion:nil];
 }
+
++ (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize
+{
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
+    CGRect rect = CGRectMake(0.0, 0.0, newSize.width, newSize.height);
+    [image drawInRect:rect];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
 #endif
 @end

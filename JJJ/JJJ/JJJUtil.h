@@ -45,7 +45,6 @@
 + (NSString*) stringWithNewLinesAsBRs:(NSString*)text;
 + (BOOL) addSkipBackupAttributeToItemAtURL:(NSURL *)URL;
 + (NSString*) removeNewLines:(NSString*)text;
-+ (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize;
 
 #if defined(_OS_IPHONE) || defined(_OS_IPHONE_SIMULATOR)
 + (UIColor*) UIColorFromRGB:(NSUInteger) rgbValue;
@@ -57,6 +56,7 @@
      cancelButtonTitle:(NSString*) cancelTitle
      otherButtonTitles:(NSDictionary*) otherButtons
      textFieldHandlers:(NSArray*) textFieldHandlers;
++ (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize;
 #endif
 
 @end
