@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "JJJUtils"
-  s.version          = "0.1.3"
+  s.version          = "0.1.5"
   s.summary          = "A utility library for iOS and Mac OS projects."
 
 # This description is used to generate tags and improve search results.
@@ -28,8 +28,6 @@ A utility library for iOS and Mac OS projects, which includes useful string meth
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
 #  s.platform     = :ios, '7.0'
-  s.ios.platform      = :ios, '7.0'
-  s.osx.platform      = :osx, '10.8'
 
   s.requires_arc = true
 
@@ -38,7 +36,19 @@ A utility library for iOS and Mac OS projects, which includes useful string meth
     'JJJUtils' => ['Pod/Assets/*.png']
   }
 
+  s.source_files  = 'Classes/**/*.{h,m,c}'
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
+
+  s.subspec 'iOS' do |ios|
+    ios.platform      = :ios, '7.0'
+    ios.source_files  = 'Pod/Classes/**/*.{h,m}'
+  end
+
+  s.subspec 'OSX' do |osx|
+    osx.platform      = :osx, '10.8'
+    osx.source_files  = 'Pod/Classes/**/*.{h,m}'
+  end
+
 end
