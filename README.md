@@ -28,7 +28,7 @@ pod "JJJUtils/OSX"
 
 ## Author
 
-Jovito Royeca, jovit.royeca@gmail.com
+Jovito Royeca, http://jovitoroyeca.com
 
 ## License
 
