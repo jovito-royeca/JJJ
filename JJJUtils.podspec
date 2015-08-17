@@ -27,7 +27,7 @@ A utility library for iOS and Mac OS projects, which includes useful string meth
   s.source           = { :git => "https://github.com/jovito-royeca/JJJUtils.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-#  s.platform     = :ios, '7.0'
+  s.platform     = :ios, '7.0'
 
   s.requires_arc = true
 
@@ -36,19 +36,18 @@ A utility library for iOS and Mac OS projects, which includes useful string meth
     'JJJUtils' => ['Pod/Assets/*.png']
   }
 
-  s.source_files  = 'Classes/**/*.{h,m,c}'
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
 
-  s.subspec 'iOS' do |ios|
-    ios.platform      = :ios, '7.0'
-    ios.source_files  = 'Pod/Classes/**/*.{h,m}'
-  end
+#  s.subspec 'iOS' do |ios|
+#    ios.platform      = :ios, '7.0'
+#    ios.source_files  = 'Pod/Classes/**/*'
+#  end
 
   s.subspec 'OSX' do |osx|
     osx.platform      = :osx, '10.8'
-    osx.source_files  = 'Pod/Classes/**/*.{h,m}'
+    osx.source_files  = 'Pod/Classes/**/*'
   end
 
 end
