@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "JJJUtils"
-  s.version          = "0.1.1"
+  s.version          = "0.1.2"
   s.summary          = "A utility library for iOS and Mac OS projects."
 
 # This description is used to generate tags and improve search results.
