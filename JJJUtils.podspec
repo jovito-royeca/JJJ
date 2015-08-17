@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "JJJUtils"
-  s.version          = "0.1.2"
+  s.version          = "0.1.3"
   s.summary          = "A utility library for iOS and Mac OS projects."
 
 # This description is used to generate tags and improve search results.
@@ -27,7 +27,10 @@ A utility library for iOS and Mac OS projects, which includes useful string meth
   s.source           = { :git => "https://github.com/jovito-royeca/JJJUtils.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.platform     = :ios, '7.0'
+#  s.platform     = :ios, '7.0'
+  s.ios.platform      = :ios, '7.0'
+  s.osx.platform      = :osx, '10.8'
+
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/**/*'
