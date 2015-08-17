@@ -12,6 +12,9 @@
 #include "JJJConstants.h"
 
 #import "JJJUtil.h"
+
+#if defined(_OS_IPHONE) || defined(_OS_IPHONE_SIMULATOR)
 #import "UIImage+AverageColor.h"
+#endif
 
 #endif
