@@ -47,8 +47,8 @@
 + (NSString*) removeNewLines:(NSString*)text;
 
 #if defined(_OS_IPHONE) || defined(_OS_IPHONE_SIMULATOR)
-+ (UIColor*) UIColorFromRGB:(NSUInteger) rgbValue;
-+ (UIColor*)colorFromHexString:(NSString *)hexString;
++ (UIColor*) colorFromRGB:(NSUInteger) rgbValue;
++ (UIColor*) colorFromHexString:(NSString *)hexString;
 
 + (void)alertWithTitle:(NSString *)title andMessage:(NSString *)message;
 + (void)alertWithTitle:(NSString*) title

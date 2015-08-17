@@ -10,6 +10,8 @@
 #define JJJ_h
 
 #include "JJJConstants.h"
+
 #import "JJJUtil.h"
+#import "UIImage+AverageColor.h"
 
 #endif

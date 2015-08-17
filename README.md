@@ -20,6 +20,12 @@ it, simply add the following line to your Podfile:
 pod "JJJUtils"
 ```
 
+If using JJJUtils in an OSX project you should use:
+
+```ruby
+pod "JJJUtils/OSX"
+```
+
 ## Author
 
 Jovito Royeca, jovit.royeca@gmail.com

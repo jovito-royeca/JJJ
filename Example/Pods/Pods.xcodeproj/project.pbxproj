@@ -35,6 +35,8 @@
 		8C0ECBE71B818E04005D5BEE /* JJJCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C0ECBE11B818E04005D5BEE /* JJJCoreData.m */; };
 		8C0ECBE81B818E04005D5BEE /* JJJUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C0ECBE21B818E04005D5BEE /* JJJUtil.h */; };
 		8C0ECBE91B818E04005D5BEE /* JJJUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C0ECBE31B818E04005D5BEE /* JJJUtil.m */; };
+		8C0ECBEE1B81C327005D5BEE /* UIImage+AverageColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C0ECBEC1B81C327005D5BEE /* UIImage+AverageColor.h */; };
+		8C0ECBEF1B81C327005D5BEE /* UIImage+AverageColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C0ECBED1B81C327005D5BEE /* UIImage+AverageColor.m */; };
 		CC86AF1A2D691FCFD79993FAF7EC37F1 /* UIImage+Diff.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E1E8179D1A71272ED8E72E03E627A5A /* UIImage+Diff.m */; };
 		D33D281814A2149B88401190DC089A23 /* FBSnapshotTestCase.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C0D2B5A7F3CC74CD5DA0B74B04F5F71 /* FBSnapshotTestCase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E6224BE834044AB4D63C1E6D8B5A3AF4 /* FBSnapshotTestCase-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE3B7667CF656A350FBE0CA447A6E68 /* FBSnapshotTestCase-dummy.m */; };
@@ -111,6 +113,8 @@
 		8C0ECBE11B818E04005D5BEE /* JJJCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJJCoreData.m; sourceTree = "<group>"; };
 		8C0ECBE21B818E04005D5BEE /* JJJUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJJUtil.h; sourceTree = "<group>"; };
 		8C0ECBE31B818E04005D5BEE /* JJJUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJJUtil.m; sourceTree = "<group>"; };
+		8C0ECBEC1B81C327005D5BEE /* UIImage+AverageColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+AverageColor.h"; sourceTree = "<group>"; };
+		8C0ECBED1B81C327005D5BEE /* UIImage+AverageColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+AverageColor.m"; sourceTree = "<group>"; };
 		8D96A8E3CD633CE5B7AC149CBEDC48E2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		8E1E8179D1A71272ED8E72E03E627A5A /* UIImage+Diff.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Diff.m"; path = "FBSnapshotTestCase/Categories/UIImage+Diff.m"; sourceTree = "<group>"; };
 		9010D43AE00F6314025C2C75197C2EAB /* Pods-JJJUtils_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-JJJUtils_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -192,6 +196,8 @@
 		3318A9F427DA6444FC06EEAC227F849E /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				8C0ECBEC1B81C327005D5BEE /* UIImage+AverageColor.h */,
+				8C0ECBED1B81C327005D5BEE /* UIImage+AverageColor.m */,
 				8C0ECBDE1B818E04005D5BEE /* JJJ.h */,
 				8C0ECBDF1B818E04005D5BEE /* JJJConstants.h */,
 				8C0ECBE01B818E04005D5BEE /* JJJCoreData.h */,
@@ -406,6 +412,7 @@
 			files = (
 				7CC310AFA0C3E17302D78D564096FBC5 /* FBSnapshotTestCase-umbrella.h in Headers */,
 				8C0ECBE41B818E04005D5BEE /* JJJ.h in Headers */,
+				8C0ECBEE1B81C327005D5BEE /* UIImage+AverageColor.h in Headers */,
 				8C0ECBE81B818E04005D5BEE /* JJJUtil.h in Headers */,
 				8C0ECBE51B818E04005D5BEE /* JJJConstants.h in Headers */,
 				D33D281814A2149B88401190DC089A23 /* FBSnapshotTestCase.h in Headers */,
@@ -595,6 +602,7 @@
 				87D01A21CE5EA62A2FE51B6743A082FF /* FBSnapshotTestController.m in Sources */,
 				56806E69B302E4AF38A8F0FD322F5043 /* SwiftSupport.swift in Sources */,
 				8C0ECBE91B818E04005D5BEE /* JJJUtil.m in Sources */,
+				8C0ECBEF1B81C327005D5BEE /* UIImage+AverageColor.m in Sources */,
 				26AB13B7A5258A29941144D9FF4B8932 /* UIImage+Compare.m in Sources */,
 				CC86AF1A2D691FCFD79993FAF7EC37F1 /* UIImage+Diff.m in Sources */,
 				70E17C05B6D5F53347BA84BC3E91BF73 /* UIImage+Snapshot.m in Sources */,
