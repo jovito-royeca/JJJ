@@ -1,6 +1,6 @@
 # JJJUtils
 
-[![CI Status](http://img.shields.io/travis/Jovito Royeca/JJJUtils.svg?style=flat)](https://travis-ci.org/Jovito Royeca/JJJUtils)
+[![CI Status](http://img.shields.io/travis/jovito-royeca/JJJUtils.svg?style=flat)](https://travis-ci.org/jovito-royeca/JJJUtils)
 [![Version](https://img.shields.io/cocoapods/v/JJJUtils.svg?style=flat)](http://cocoapods.org/pods/JJJUtils)
 [![License](https://img.shields.io/cocoapods/l/JJJUtils.svg?style=flat)](http://cocoapods.org/pods/JJJUtils)
 [![Platform](https://img.shields.io/cocoapods/p/JJJUtils.svg?style=flat)](http://cocoapods.org/pods/JJJUtils)
