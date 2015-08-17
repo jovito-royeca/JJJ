@@ -1,0 +1,21 @@
+PODS:
+  - FBSnapshotTestCase (2.0.3):
+    - FBSnapshotTestCase/SwiftSupport (= 2.0.3)
+  - FBSnapshotTestCase/Core (2.0.3)
+  - FBSnapshotTestCase/SwiftSupport (2.0.3):
+    - FBSnapshotTestCase/Core
+  - JJJUtils (0.1.0)
+
+DEPENDENCIES:
+  - FBSnapshotTestCase
+  - JJJUtils (from `../`)
+
+EXTERNAL SOURCES:
+  JJJUtils:
+    :path: ../
+
+SPEC CHECKSUMS:
+  FBSnapshotTestCase: d0eeca6bf87958e088b254396ae66873f971cfb1
+  JJJUtils: e14f4faa0a4d8df97cab393617734fd638d380f9
+
+COCOAPODS: 0.38.2

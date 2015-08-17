@@ -1,0 +1,25 @@
+{
+  "name": "JJJUtils",
+  "version": "0.1.0",
+  "summary": "A short description of JJJUtils.",
+  "description": "",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/JJJUtils",
+  "license": "MIT",
+  "authors": {
+    "J Royeca": "buttmanizer@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/JJJUtils.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "source_files": "Pod/Classes/**/*",
+  "resource_bundles": {
+    "JJJUtils": [
+      "Pod/Assets/*.png"
+    ]
+  }
+}
