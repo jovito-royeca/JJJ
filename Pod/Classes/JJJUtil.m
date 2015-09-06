@@ -590,7 +590,7 @@
     
     [color getRed:&r green:&g blue:&b alpha:&a];
     
-    return [NSString stringWithFormat:@"%02x%02x%02x%02x", (int)(max * r), (int)(max * r), (int)(max * r), (int)(max * r)];
+    return [NSString stringWithFormat:@"%02x%02x%02x%02x", (int)(max * r), (int)(max * g), (int)(max * b), (int)(max * a)];
 }
 
 #pragma mark Imaging
