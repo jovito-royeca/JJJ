@@ -53,6 +53,7 @@
 + (UIColor*) colorFromRGB:(NSUInteger) rgbValue;
 + (UIColor*) colorFromHexString:(NSString *)hexString;
 + (NSString*) colorToHexString:(UIColor*) color;
++ (UIColor*) inverseColor:(UIColor*) color;
 
 #pragma mark - Imaging
 + (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize;

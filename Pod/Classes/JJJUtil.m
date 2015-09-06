@@ -593,6 +593,13 @@
     return [NSString stringWithFormat:@"%02x%02x%02x", (int)(max * r), (int)(max * g), (int)(max * b)];
 }
 
++ (UIColor*) inverseColor:(UIColor*) color
+{
+    CGFloat r,g,b,a;
+    [color getRed:&r green:&g blue:&b alpha:&a];
+    return [UIColor colorWithRed:1.-r green:1.-g blue:1.-b alpha:a];
+}
+
 #pragma mark Imaging
 + (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize
 {
