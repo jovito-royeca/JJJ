@@ -10,6 +10,7 @@
 
 @implementation JJJUtil
 
+#pragma mark - Strings
 + (BOOL) string:(NSString *)string containsString:(NSString*)x
 {
     NSRange isRange = [string rangeOfString:x options:NSCaseInsensitiveSearch];
@@ -344,32 +345,127 @@
     return p;
 }
 
++ (NSArray*) alphabetWithWildcard
+{
+    static NSArray *arrAlphabet;
+    
+    if (!arrAlphabet)
+    {
+        arrAlphabet =  @[@"#",
+                         @"A",
+                         @"B",
+                         @"C",
+                         @"D",
+                         @"E",
+                         @"F",
+                         @"G",
+                         @"H",
+                         @"I",
+                         @"J",
+                         @"K",
+                         @"L",
+                         @"M",
+                         @"N",
+                         @"O",
+                         @"P",
+                         @"Q",
+                         @"R",
+                         @"S",
+                         @"T",
+                         @"U",
+                         @"V",
+                         @"W",
+                         @"X",
+                         @"Y",
+                         @"Z"];
+    }
+    
+    return arrAlphabet;
+}
 
-//+ (NSString*) addSuperScriptToString:(NSString*)string
-//{
-//    NSMutableAttributedString *att = [[NSMutableAttributedString alloc] initWithString:string];
-//
-//    [att beginEditing];
-//    [att addAttribute:(NSString*)NSSuperscriptAttributeName
-//                value:[NSNumber numberWithInt:1]
-//                range:NSMakeRange(0, string.length-1)];
-//    [att endEditing];
-//    
-//    return [att string];
-//}
-//
-//+ (NSString*) addSubScriptToString:(NSString*)string
-//{
-//    NSMutableAttributedString *att = [[NSMutableAttributedString alloc] initWithString:string];
-//        [att beginEditing];
-//        [att addAttribute:(NSString*)NSSuperscriptAttributeName
-//                    value:[NSNumber numberWithInt:-1]
-//                    range:NSMakeRange(0, string.length-1)];
-//        [att endEditing];
-//
-//    return [att string];
-//}
++ (NSString*) termInitial:(NSString*) term
+{
+    if ([JJJUtil isAlphaStart:term])
+    {
+        return [[term substringToIndex:1] uppercaseString];
+    }
+    else
+    {
+        return @"#";
+    }
+}
 
++ (NSString*) highlightTerm:(NSString*) term withQuery:(NSString*) query
+{
+    NSRegularExpression *re = [NSRegularExpression regularExpressionWithPattern:query
+                                                                        options:NSRegularExpressionCaseInsensitive
+                                                                          error:NULL];
+    return [re stringByReplacingMatchesInString:term
+                                        options:0
+                                          range:NSMakeRange(0, term.length)
+                                   withTemplate:@"<mark>$0</mark>"];
+}
+
++ (BOOL) stringContainsSpace:(NSString*)string
+{
+    NSRange whiteSpaceRange = [string rangeOfCharacterFromSet:[NSCharacterSet whitespaceCharacterSet]];
+    
+    return whiteSpaceRange.location != NSNotFound ? YES : NO;
+}
+
++ (NSString*) reverseString:(NSString*) string
+{
+    NSMutableString *reversedString = [NSMutableString string];
+    NSInteger charIndex = [string length];
+    
+    while (charIndex > 0)
+    {
+        charIndex--;
+        NSRange subStrRange = NSMakeRange(charIndex, 1);
+        [reversedString appendString:[string substringWithRange:subStrRange]];
+    }
+    
+    return reversedString;
+}
+
++ (NSString*) stringWithNewLinesAsBRs:(NSString*)text
+{
+    return [[text componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@"<br/>"];
+}
+
++ (NSString*) removeNewLines:(NSString*)text
+{
+    return [[text componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@" "];
+}
+
+#pragma mark - Networking
++ (void) downloadResource:(NSURL*) url toPath:(NSString*) path
+{
+    NSData *urlData = [NSData dataWithContentsOfURL:url];
+    
+    if (urlData)
+    {
+        [urlData writeToFile:path atomically:YES];
+    }
+}
+
++ (BOOL) addSkipBackupAttributeToItemAtURL:(NSURL *)URL
+{
+    assert([[NSFileManager defaultManager] fileExistsAtPath: [URL path]]);
+    
+    NSError *error = nil;
+    BOOL success = [URL setResourceValue: [NSNumber numberWithBool: YES]
+                                  forKey: NSURLIsExcludedFromBackupKey error: &error];
+    
+    if(!success)
+    {
+        NSLog(@"Error excluding %@ from backup %@", [URL lastPathComponent], error);
+    }
+    
+    return success;
+}
+
+#pragma mark - Dates
 + (NSString *) formatInterval: (NSTimeInterval) interval
 {
     //    if (interval == 0)
@@ -409,72 +505,20 @@
     
 }
 
-+ (NSArray*) alphabetWithWildcard
++ (NSDate*) parseDate:(NSString*)date withFormat:(NSString*) format
 {
-    static NSArray *arrAlphabet;
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     
-    if (!arrAlphabet)
-    {
-        arrAlphabet =  @[@"#",
-             @"A",
-             @"B",
-             @"C",
-             @"D",
-             @"E",
-             @"F",
-             @"G",
-             @"H",
-             @"I",
-             @"J",
-             @"K",
-             @"L",
-             @"M",
-             @"N",
-             @"O",
-             @"P",
-             @"Q",
-             @"R",
-             @"S",
-             @"T",
-             @"U",
-             @"V",
-             @"W",
-             @"X",
-             @"Y",
-             @"Z"];
-    }
-    
-    return arrAlphabet;
+    [dateFormat setDateFormat:format];
+    return [dateFormat dateFromString:date];
 }
 
-+ (NSString*) termInitial:(NSString*) term
++ (NSString*) formatDate:(NSDate *)date withFormat:(NSString*) format
 {
-    if ([JJJUtil isAlphaStart:term])
-    {
-        return [[term substringToIndex:1] uppercaseString];
-    }
-    else
-    {
-        return @"#";
-    }
-}
-
-+ (NSString*) highlightTerm:(NSString*) term withQuery:(NSString*) query
-{
-    NSRegularExpression *re = [NSRegularExpression regularExpressionWithPattern:query
-                                                                        options:NSRegularExpressionCaseInsensitive
-                                                                          error:NULL];
-    return [re stringByReplacingMatchesInString:term
-                                        options:0
-                                          range:NSMakeRange(0, term.length)
-                                   withTemplate:@"<mark>$0</mark>"];
-}
-
-+ (BOOL) stringContainsSpace:(NSString*)string
-{
-    NSRange whiteSpaceRange = [string rangeOfCharacterFromSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     
-    return whiteSpaceRange.location != NSNotFound ? YES : NO;
+    [dateFormat setDateFormat:format];
+    return [dateFormat stringFromDate:date];
 }
 
 
@@ -514,74 +558,9 @@
 #endif
 }
 
-+ (void) downloadResource:(NSURL*) url toPath:(NSString*) path
-{
-    NSData *urlData = [NSData dataWithContentsOfURL:url];
-    
-    if (urlData)
-    {
-        [urlData writeToFile:path atomically:YES];
-    }
-}
-
-+ (NSDate*) parseDate:(NSString*)date withFormat:(NSString*) format
-{
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    
-    [dateFormat setDateFormat:format];
-    return [dateFormat dateFromString:date];
-}
-
-+ (NSString*) formatDate:(NSDate *)date withFormat:(NSString*) format
-{
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    
-    [dateFormat setDateFormat:format];
-    return [dateFormat stringFromDate:date];
-}
-
-+ (NSString*) reverseString:(NSString*) string
-{
-    NSMutableString *reversedString = [NSMutableString string];
-    NSInteger charIndex = [string length];
-    
-    while (charIndex > 0)
-    {
-        charIndex--;
-        NSRange subStrRange = NSMakeRange(charIndex, 1);
-        [reversedString appendString:[string substringWithRange:subStrRange]];
-    }
-    
-    return reversedString;
-}
-
-+ (NSString*) stringWithNewLinesAsBRs:(NSString*)text
-{
-    return [[text componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@"<br/>"];
-}
-
-+ (BOOL) addSkipBackupAttributeToItemAtURL:(NSURL *)URL
-{
-    assert([[NSFileManager defaultManager] fileExistsAtPath: [URL path]]);
-    
-    NSError *error = nil;
-    BOOL success = [URL setResourceValue: [NSNumber numberWithBool: YES]
-                                  forKey: NSURLIsExcludedFromBackupKey error: &error];
-    
-    if(!success)
-    {
-        NSLog(@"Error excluding %@ from backup %@", [URL lastPathComponent], error);
-    }
-    
-    return success;
-}
-
-+ (NSString*) removeNewLines:(NSString*)text
-{
-    return [[text componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@" "];
-}
 
 #if defined(_OS_IPHONE) || defined(_OS_IPHONE_SIMULATOR)
+#pragma mark - Colors
 + (UIColor*) colorFromRGB:(NSUInteger) rgbValue
 {
     return [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0
@@ -604,6 +583,28 @@
                            alpha:1.0];
 }
 
++ (NSString*) colorToHexString:(UIColor*) color
+{
+    CGFloat r, g, b, a;
+    float max = 255.0;
+    
+    [color getRed:&r green:&g blue:&b alpha:&a];
+    
+    return [NSString stringWithFormat:@"%02x%02x%02x%02x", (int)(max * r), (int)(max * r), (int)(max * r), (int)(max * r)];
+}
+
+#pragma mark Imaging
++ (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize
+{
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
+    CGRect rect = CGRectMake(0.0, 0.0, newSize.width, newSize.height);
+    [image drawInRect:rect];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
+#pragma mark - UI
 + (void)alertWithTitle:(NSString*) title andMessage:(NSString*) message {
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title
@@ -694,15 +695,32 @@
     [topController  presentViewController:alert animated:YES completion:nil];
 }
 
-+ (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize
-{
-    UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
-    CGRect rect = CGRectMake(0.0, 0.0, newSize.width, newSize.height);
-    [image drawInRect:rect];
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return newImage;
-}
-
 #endif
+
+#pragma mark - Unused
+//+ (NSString*) addSuperScriptToString:(NSString*)string
+//{
+//    NSMutableAttributedString *att = [[NSMutableAttributedString alloc] initWithString:string];
+//
+//    [att beginEditing];
+//    [att addAttribute:(NSString*)NSSuperscriptAttributeName
+//                value:[NSNumber numberWithInt:1]
+//                range:NSMakeRange(0, string.length-1)];
+//    [att endEditing];
+//
+//    return [att string];
+//}
+//
+//+ (NSString*) addSubScriptToString:(NSString*)string
+//{
+//    NSMutableAttributedString *att = [[NSMutableAttributedString alloc] initWithString:string];
+//        [att beginEditing];
+//        [att addAttribute:(NSString*)NSSuperscriptAttributeName
+//                    value:[NSNumber numberWithInt:-1]
+//                    range:NSMakeRange(0, string.length-1)];
+//        [att endEditing];
+//
+//    return [att string];
+//}
+
 @end

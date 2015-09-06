@@ -20,6 +20,7 @@
 
 @interface JJJUtil : NSObject
 
+#pragma mark - Strings
 + (BOOL) string:(NSString *)string containsString:(NSString*)x;
 + (BOOL) isEmptyString:(NSString*)string;
 + (BOOL) isAlphaStart:(NSString*)string;
@@ -29,34 +30,44 @@
 + (NSString*) trim:(NSString*)string;
 + (NSString*) superScriptOf:(NSString*)string;
 + (NSString*) subScriptOf:(NSString*)string;
-+ (NSString*) formatInterval: (NSTimeInterval) interval;
 + (NSArray*) alphabetWithWildcard;
 + (NSString*) termInitial:(NSString*) term;
 + (NSString*) highlightTerm:(NSString*) term withQuery:(NSString*) query;
 + (BOOL) stringContainsSpace:(NSString*)string;
-
-+ (NSString*) runCommand:(NSString*) command;
-
-+ (void) downloadResource:(NSURL*) url toPath:(NSString*) path;
-
-+ (NSDate*) parseDate:(NSString*)date withFormat:(NSString*) format;
-+ (NSString*) formatDate:(NSDate *)date withFormat:(NSString*) format;
 + (NSString*) reverseString:(NSString*) string;
 + (NSString*) stringWithNewLinesAsBRs:(NSString*)text;
-+ (BOOL) addSkipBackupAttributeToItemAtURL:(NSURL *)URL;
 + (NSString*) removeNewLines:(NSString*)text;
 
+#pragma mark - Networking
++ (void) downloadResource:(NSURL*) url toPath:(NSString*) path;
++ (BOOL) addSkipBackupAttributeToItemAtURL:(NSURL *)URL;
+
+#pragma mark - Dates
++ (NSString*) formatInterval: (NSTimeInterval) interval;
++ (NSDate*) parseDate:(NSString*)date withFormat:(NSString*) format;
++ (NSString*) formatDate:(NSDate *)date withFormat:(NSString*) format;
+
+
 #if defined(_OS_IPHONE) || defined(_OS_IPHONE_SIMULATOR)
+#pragma mark - Colors
 + (UIColor*) colorFromRGB:(NSUInteger) rgbValue;
 + (UIColor*) colorFromHexString:(NSString *)hexString;
++ (NSString*) colorToHexString:(UIColor*) color;
 
+#pragma mark - Imaging
++ (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize;
+
+#pragma mark - UI
 + (void)alertWithTitle:(NSString *)title andMessage:(NSString *)message;
 + (void)alertWithTitle:(NSString*) title
                message:(NSString*) message
      cancelButtonTitle:(NSString*) cancelTitle
      otherButtonTitles:(NSDictionary*) otherButtons
      textFieldHandlers:(NSArray*) textFieldHandlers;
-+ (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize;
+
 #endif
+
+#pragma mark - Miscellaneous
++ (NSString*) runCommand:(NSString*) command;
 
 @end
