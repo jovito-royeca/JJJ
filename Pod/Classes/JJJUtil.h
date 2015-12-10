@@ -44,6 +44,7 @@
 
 #pragma mark - Dates
 + (NSString*) formatInterval: (NSTimeInterval) interval;
++ (NSString *) formatIntervalHumanReadable: (NSTimeInterval) interval;
 + (NSDate*) parseDate:(NSString*)date withFormat:(NSString*) format;
 + (NSString*) formatDate:(NSDate *)date withFormat:(NSString*) format;
 
