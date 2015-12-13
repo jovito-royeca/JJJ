@@ -26,6 +26,16 @@ If using JJJUtils in an OSX project you should use:
 pod "JJJUtils/OSX"
 ```
 
+## Releasing a New Build
+$ edit JJJUtils.podspec
+# set the new version to 0.0.1
+# set the new tag to 0.0.1
+$ pod lib lint
+$ git add -A && git commit -m "Release 0.0.1."
+$ git tag '0.0.1'
+$ git push --tags
+$ pod trunk push JJJUtils.podspec
+
 ## Author
 
 Jovito Royeca, http://jovitoroyeca.com
