@@ -7,6 +7,4 @@ end
 
 target 'JJJUtils_Tests', :exclusive => true do
   pod "JJJUtils", :path => "../"
-
-  pod 'FBSnapshotTestCase'
 end
