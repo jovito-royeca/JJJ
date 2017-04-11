@@ -27,12 +27,11 @@ pod "JJJUtils/OSX"
 ```
 
 ## Releasing a New Build
+Set the new version to X.X.X.
 ```
 $ edit JJJUtils.podspec
 ```
-Set the new version to X.X.X.
 Set the new tag to X.X.X
-
 ```
 $ pod lib lint --allow-warnings
 $ git add -A && git commit -m "Release X.X.X."
