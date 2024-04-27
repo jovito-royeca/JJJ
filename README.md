@@ -42,7 +42,7 @@ $ pod trunk push JJJUtils.podspec --allow-warnings
 
 ## Author
 
-Jovito Royeca, http://jovitoroyeca.com
+Vito Royeca, https://github.com/vito-royeca
 
 ## License
 
