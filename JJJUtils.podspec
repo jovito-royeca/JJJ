@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "JJJUtils"
-  s.version          = "0.3.1"
+  s.version          = "0.3.3"
   s.summary          = "A utility library for iOS and Mac OS projects."
 
 # This description is used to generate tags and improve search results.
@@ -20,21 +20,21 @@ Pod::Spec.new do |s|
 A utility library for iOS and Mac OS projects, which includes useful string methods and a lot more!
                        DESC
 
-  s.homepage         = "https://github.com/jovito-royeca/JJJUtils"
+  s.homepage         = "https://github.com/vito-royeca/JJJUtils"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
-  s.author           = { "Jovito Royeca" => "http://jovitoroyeca.com" }
-  s.source           = { :git => "https://github.com/jovito-royeca/JJJUtils.git", :tag => s.version.to_s }
+  s.author           = { "Vito Royeca" => "https://github.com/vito-royeca" }
+  s.source           = { :git => "https://github.com/vito-royeca/JJJUtils.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.platform     = :ios, '7.0'
+  s.platform     = :ios, '12.0'
 
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/*.{h,m}', 'Pod/Classes/iOS/*.{h,m}'
-  s.resource_bundles = {
-    'JJJUtils' => ['Pod/Assets/*.png']
-  }
+  #s.resource_bundles = {
+  #  'JJJUtils' => ['Pod/Assets/*.png']
+  #}
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
@@ -46,7 +46,7 @@ A utility library for iOS and Mac OS projects, which includes useful string meth
 #  end
 
   s.subspec 'OSX' do |osx|
-    osx.platform      = :osx, '10.8'
+    osx.platform      = :osx, '10.13'
     osx.source_files  = 'Pod/Classes/*.{h,m}'
   end
 
